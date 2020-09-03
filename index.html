@@ -20,6 +20,15 @@
     <div class="product-info">
       <h1>{{ product }}</h1>
       <p v-show="onSale">On Sale!</p>
+
+      <ul>
+          <li v-for="size in sizes">{{ size }}</li>
+      </ul>
+
+      <div v-for="variant in variants" :key="variant.variantId">
+          <p>{{ variant.variantColor }}</p>
+        </div>
+
     </div>
     
   </div>

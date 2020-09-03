@@ -3,6 +3,17 @@ const app = new Vue({
     data: {
         product: "T-shirt",
         image: "./assets/vyshymaika.jpg",
-        onSale: true
+        onSale: true,
+        sizes: ["S", "M", "L", "XL"],
+        variants: [
+            {
+                variantId: 1,
+                variantColor: "black"
+            },
+            {
+                variantId: 2,
+                variantColor: "white"
+            }
+        ]
     }
 })
