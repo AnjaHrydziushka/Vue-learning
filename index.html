@@ -31,11 +31,19 @@
             @mouseover="updateProduct(variant.variantImage)"
           ></div>
 
-          <button v-on:click="addToCart" :disabled="!inStock">
+          <button
+            v-on:click="addToCart"
+            :disabled="!inStock"
+            :class="{ disabledButton: !inStock }"
+          >
             Add to Cart
           </button>
           <p>
-            <button v-on:click="removeFromCart" :disabled="!inStock">
+            <button
+              v-on:click="removeFromCart"
+              :disabled="!inStock"
+              :class="{ disabledButton: !inStock }"
+            >
               Remove from Cart
             </button>
           </p>
