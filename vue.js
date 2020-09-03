@@ -1,6 +1,7 @@
 const app = new Vue({
     el: '#app',
     data: {
-        product: "Leggins"
+        product: "T-shirt",
+        image: "./assets/vyshymaika.jpg"
     }
 })
