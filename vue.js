@@ -4,6 +4,7 @@ const app = new Vue({
         product: "T-shirt",
         image: "./assets/vyshymaika-white.jpg",
         onSale: true,
+        inStock: true,
         sizes: ["S", "M", "L", "XL"],
         variants: [
             {
