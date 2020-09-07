@@ -1,6 +1,7 @@
 const app = new Vue({
     el: '#app',
     data: {
+        brand: "Vyshymaika",
         product: "T-shirt",
         image: "./assets/vyshymaika-white.jpg",
         inStock: true,
@@ -28,6 +29,11 @@ const app = new Vue({
         },
         removeFromCart() {
             this.cart -= 1
+        }
+    },
+    computed: {
+        title() {
+            return this.brand + ' ' + this.product
         }
     }
 })
