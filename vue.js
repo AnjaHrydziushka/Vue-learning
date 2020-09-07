@@ -10,13 +10,15 @@ const app = new Vue({
                 variantId: 1,
                 variantColor: "black",
                 variantImage: "./assets/vyshymaika-black.jpg",
-                variantQuantity: 10
+                variantQuantity: 10,
+                variantOnSale: true
             },
             {
                 variantId: 2,
                 variantColor: "white",
                 variantImage: "./assets/vyshymaika-white.jpg",
-                variantQuantity: 0
+                variantQuantity: 0,
+                variantOnSale: false
             }
         ],
         cart: 0
@@ -26,8 +28,7 @@ const app = new Vue({
             this.cart += 1
         },
         updateProduct(index) {
-            this.selectedVariant = index;
-            console.log("Index:", index)
+            this.selectedVariant = index
         },
         removeFromCart() {
             this.cart -= 1
@@ -42,6 +43,9 @@ const app = new Vue({
         },
         inStock() {
             return this.variants[this.selectedVariant].variantQuantity
+        },
+        onSale() {
+            return this.variants[this.selectedVariant].variantOnSale
         }
     }
 })

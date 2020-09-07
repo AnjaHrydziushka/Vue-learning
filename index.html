@@ -20,6 +20,9 @@
           <p v-if="inStock">In Stock</p>
           <p v-else :class="{ outOfStock: !inStock }">Out of Stock</p>
 
+          <p v-if="onSale">ON SALE!</p>
+          <p v-else> </p>
+
           <ul>
             <li v-for="size in sizes">{{ size }}</li>
           </ul>
