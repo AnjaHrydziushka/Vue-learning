@@ -1,3 +1,16 @@
+Vue.component('product-sizes', {
+    props: {
+        sizes: {
+            type: Array,
+            required: true
+        }
+    },
+    template:
+    `<ul>
+        <li v-for="size in sizes"> {{ size }} </li>
+     </ul>`
+})
+
 Vue.component('product', {
     props: {
         premium: {
@@ -5,11 +18,11 @@ Vue.component('product', {
             required: true
         }
     },
-    template: `      <div class="product">
+    template: 
+    `<div class="product">
     <div class="product-image">
       <img :src="image" />
     </div>
-
     <div class="product-info">
       <h1>{{ title }}</h1>
       <p v-if="inStock">In Stock</p>
@@ -20,9 +33,7 @@ Vue.component('product', {
 
       <p> Shipping: {{ shipping }} </p>
 
-      <ul>
-        <li v-for="size in sizes">{{ size }}</li>
-      </ul>
+      <product-sizes :sizes="sizes"></product-sizes>
 
       <div
         v-for="(variant, index) in variants"
@@ -30,8 +41,8 @@ Vue.component('product', {
         class="color-box"
         :style="{ backgroundColor: variant.variantColor }"
         @mouseover="updateProduct(index)"
-      ></div>
-
+      >
+      </div>
       <button
         v-on:click="addToCart"
         :disabled="!inStock"
