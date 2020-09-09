@@ -1,3 +1,13 @@
+Vue.component('product-review', {
+    template:
+    `<input v-model="name">`,
+    data() {
+        return {
+            name: null
+        }
+    }
+})
+
 Vue.component('product-sizes', {
     props: {
         sizes: {
@@ -59,6 +69,8 @@ Vue.component('product', {
           Remove from Cart
         </button>
       </p>
+
+      <product-review></product-review>
       
     </div>
   </div>`,
