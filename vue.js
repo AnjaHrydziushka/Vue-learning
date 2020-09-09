@@ -1,3 +1,5 @@
+const eventBus = new Vue()
+
 Vue.component('product-sizes', {
     props: {
         sizes: {
@@ -98,9 +100,6 @@ methods: {
     },
     removeFromCart() {
         this.$emit('remove-from-cart', this.variants[this.selectedVariant].variantId)
-    },
-    addReview(productReview) {
-        this.reviews.push(productReview)
     }
 },
 computed: {
@@ -121,7 +120,12 @@ computed: {
             return "Free"
         } return 2.99
     }
-}
+},
+    mounted() {
+        eventBus.$on('review-submitted', productReview => {
+            this.reviews.push(productReview)
+        })
+    }
 })
 
 Vue.component('product-review', {
@@ -189,7 +193,7 @@ Vue.component('product-review', {
                 rating: this.rating,
                 recommend: this.recommend
             }
-            this.$emit('review-submitted', productReview),
+            eventBus.$emit('review-submitted', productReview),
             this.name = null,
             this.review = null,
             this.rating = null,
@@ -231,7 +235,7 @@ Vue.component("product-tabs", {
                 </li>
             </ul>
         </div>
-    <product-review v-show="selectedTab === 'Make a review'" @review-submitted="addReview"></product-review>
+    <product-review v-show="selectedTab === 'Make a review'"></product-review>
     </div>
     `,
     data() {
