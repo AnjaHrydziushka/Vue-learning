@@ -61,6 +61,8 @@ Vue.component('product', {
       </p>
     </div>
 
+    <product-tabs></product-tabs>
+
     <div>
     <div>
     <h2>Reviews</h2>
@@ -214,6 +216,25 @@ Vue.component('product-review', {
                 if(!this.recommend) this.errors.push("Please, answer the question")
             }
             
+        }
+    }
+})
+
+Vue.component("product-tabs", {
+    template:
+    `<div>
+        <span class="tab"
+            :class="{ activeTab: selectedTab === tab }"
+            v-for="(tab, index) in tabs" 
+            :key="index" 
+            @click="selectedTab = tab">
+        {{ tab }}
+        </span>
+    </div>`,
+    data() {
+        return {
+            tabs: ["Reviews", "Make a review"],
+            selectedTab: "Reviews"
         }
     }
 })
